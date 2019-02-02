@@ -1,0 +1,123 @@
+<app-header></app-header>
+<header class="bg-gradient" id="home">
+</header>
+<div class="body">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto"> 
+            <div class="card card-signin flex-row my-5">
+              <div class="card-img-left d-none d-md-flex">
+                 <!-- Background image for card set in CSS! -->
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Wallet Setup</h5>
+                 <!-- list of Currency -->
+                 <ng-container *ngIf="showListofCurrency">
+                <div class=" text-center mb-4">
+                    <img class="img-fluid" style="width:120px" src="https://redmag.by/images/cash.png" alt="wallet">
+                </div>
+                <div *ngIf="!fetWallet && !allCurrency" class=" text-center mb-4">
+                  <img src="/assets/spinner/Rolling.gif" alt="roller">
+                </div>
+                 <!-- Basic List Group start -->               
+                <ng-container *ngIf="fetWallet && allCurrency">
+                    <div class="card" >
+                        <div class="card-body">
+                            <h4 class="header-title text-center">Choose Preferred Currency</h4>
+                            <ul class="list-group currencyList" >
+                                <li class="list-group-item" *ngFor="let currency of fetWallet">
+                                  <div class="row">
+                                    <div class="col-3 float-left">
+                                        <img [src]="currency.flagImgUrl" alt="img" style="width:30px">
+                                    </div>
+                                    <div class="col text-center">
+                                        <h6 >{{currency.currency}}</h6>
+                                        <p>{{currency.symbol}}</p>
+                                      </div>
+                                    <div class="col-3 float-right">
+                                        <button (click)="removeCurrency(currency)" class="btn btn-danger btn-sm float-right">
+                                            <span class="fa fa-close"></span>
+                                          </button>
+                                    </div>
+                                  </div>
+                           
+                                </li>
+  
+                                <li class="list-group-item" *ngFor="let currency of allCurrency">
+                                    <img [src]="currency.flagImgUrl" alt="img" style="width:30px">
+                                    <span>{{currency.currency}} </span>
+                 
+                                    <button  class="btn btn-success btn-sm float-right" 
+                                    (click)="addCurrencyNew(currency.symbol)">
+                                   <span class="fa fa-plus"></span>
+                                    </button> 
+                                </li>
+                            </ul>
+                        </div>
+                        <span *ngIf="minimumCurrencyError" class="text-danger text-center mb-2">
+                          you must select up to 2 currencies
+                        </span>
+                       
+                    </div>
+                   <div class="text-center">
+                      <button (click)="goToPinSetup()" class="btn btn-md btn-primary  text-uppercase" type="submit">
+                        Next <span class="fa fa-arrow-right"></span>
+                      </button>
+                   </div>
+                </ng-container>
+              </ng-container>
+                <!-- list of Currency -->
+                <!-- Basic List Group end -->
+                  
+              
+              <ng-container *ngIf="showCreatePin">
+                <div class="text-center">
+                  <img style="width:120px" src="https://cdn1.iconfinder.com/data/icons/ui-5/502/lock-512.png" alt="pin">
+                </div>
+                <form class="form-signin" [formGroup]='form' (ngSubmit)='createWallet(form)'>
+            
+                  <div *ngIf='form.errors && password.valid' class="text-danger">
+                        {{error}}
+                    </div> 
+                    <!-- <div class="form-group">
+                      <label for="exampleFormControlSelect1">Choose Preferred Currency</label>
+                        
+                 
+                      <select class="form-control" formControlName="currency" id="exampleFormControlSelect1">
+                        <option  *ngFor="let currency of allCurrency" [value]="currency.symbol">
+                          {{currency.currency}}
+                        </option>
+                      </select>
+                      <div class="text-danger" *ngIf="currency.invalid && currency.touched">
+                          Currency is required*
+                      </div>
+                    </div> -->
+                    <b><p class="text-dark mb-2 mt-2 text-center">Create a 4 digit pin for transcation</p></b>
+                  <div class="form-label-group">
+                    
+                    <input type="password" id="inputPassword" class="form-control"  formControlName='password'
+                    placeholder="pin" required [maxLength]="4" number >
+                    <label for="inputPassword">Pin</label>
+                    <div class="text-danger ml-2 mt-2" *ngIf="password.invalid && password.touched">
+                        <div *ngIf='password.errors.required'>Pin is required</div>  
+                        <div *ngIf='password.errors.maxlength'>Pin maximum is 4</div>
+                        <div *ngIf='password.errors.minlength'>Pin minimum is 4</div>
+                        <div *ngIf='password.errors.number'>Numbers only</div> 
+                    </div>
+                  </div>
+                  <div class="text-center">
+                      <button class="btn btn-md btn-primary  text-uppercase" type="submit">
+                          Setup <span class="fa fa-arrow-circle-o-right "></span>
+                        </button>
+                  </div>
+                </form>
+           
+              </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<app-footer></app-footer>
+<notifier-container></notifier-container>

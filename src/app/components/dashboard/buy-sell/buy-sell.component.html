@@ -1,0 +1,198 @@
+<div class="page-container">
+  <!-- sidebar menu area start -->
+    <app-sidebar></app-sidebar>
+  <!-- sidebar menu area end -->
+  <!-- main content area start -->
+  <div class="main-content">
+    <app-dashboard-header></app-dashboard-header>
+    <div class="main-content-inner">
+      <div class="row">
+               <!-- nav tab start -->
+               <div class="col-lg-8 offset-lg-2 mt-5">
+                  <div class="card">
+                      <div class="card-body">
+                          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                              <li class="nav-item mr-auto">
+                                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-buy" 
+                                  role="tab" aria-controls="pills-home" aria-selected="true">Buy Currency</a>
+                              </li>
+                              <li class="nav-item ml-auto">
+                                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-sell" 
+                                  role="tab" aria-controls="pills-profile" aria-selected="false">Sell Currency</a>
+                              </li>
+                          </ul>
+                          <div class="tab-content" id="pills-tabContent">
+                              <div class="tab-pane fade show active" id="pills-buy" role="tabpanel" aria-labelledby="pills-home-tab">
+                                  <h4 class="text-center text-dark">Buy Currency</h4>  
+                                  <div class="cripto-live mt-5">
+                                    <div class="row">
+                                      <div class="col-2 " *ngFor="let currency of currencyArray">
+                                        <span class="{{currency.class}} circle text-light row-circle" [title]="currency.currency" >
+                                          {{currency.sign}}
+                                        </span>
+                                      </div>
+
+                                    </div>
+
+          <!-- accordion style 5 start buy -->
+                    <div class="col-lg-12 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="accordion5" class="according accordion-s2 gradiant-bg">
+                                   
+                             
+                                <ng-container *ngFor='let checkCurrency of wallet' >
+                                    <div class="card" *ngIf="checkCurrency.symbol === 'USD' ">
+                                            <div class="card-header">
+                                                <a class="card-link" data-toggle="collapse" href="#accordion51">
+                                                    Buy Dollar <span class="circle bg-success ml-3">$</span>
+                                                    </a>
+                                            </div>
+                                            <div id="accordion51" class="collapse show" data-parent="#accordion5">
+                                                <div class="card-body">
+                                                                <!-- Active Items end -->
+                                    <!-- Links And Buttons start -->
+                                    <div class="list-group">
+                                        <a *ngFor="let dollar of linkDollar" routerLink="{{dollar.link}}" class="list-group-item list-group-item-action">
+                                            <span class="circle" [style.background-color]='dollar.bgColor' [innerHTML]='dollar.sign'> </span> With  {{dollar.currency}}
+                                        </a>
+                            
+                                    </div>
+                                    <!-- Links And Buttons end -->
+                                    </div>
+                                </div>
+                                    </div>
+                                    <div class="card"  *ngIf="checkCurrency.symbol === 'EUR' ">
+                                            <div class="card-header">
+                                                <a class="collapsed card-link" data-toggle="collapse" href="#accordion52">
+                                                    Buy Euro <span class="circle bg-primary ml-3">&euro;</span>
+                                                    </a>
+                                            </div>
+                                            <div id="accordion52" class="collapse show" data-parent="#accordion5">
+                                                <div class="card-body">
+                                                    <div class="list-group">
+                                                        <a *ngFor="let euro of linkEuro" routerLink="{{euro.link}}" 
+                                                        class="list-group-item list-group-item-action">
+                                                            <span class="circle" [style.background-color]="euro.bgColor" [innerHTML]='euro.sign'> </span>  
+                                                           with {{euro.currency}}
+                                                        </a>
+                                                    </div>     
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <div class="card"  *ngIf="checkCurrency.symbol === 'GBP' ">
+                                            <div class="card-header">
+                                                <a class="collapsed card-link" data-toggle="collapse" href="#accordion53">
+                                                    Buy Pounds <span class="circle bg-danger ml-3">&pound;</span>
+                                                    </a>
+                                            </div>
+                                            <div id="accordion53" class="collapse show" data-parent="#accordion5">
+                                                <div class="card-body">
+                                                    <div class="list-group">
+                                                        <a *ngFor="let pounds of linkPounds" routerLink="{{pounds.link}}" 
+                                                        class="list-group-item list-group-item-action">
+                                                            <span class="circle" [style.background-color]="pounds.bgColor" [innerHTML]='pounds.sign'> </span>  
+                                                           with {{pounds.currency}}
+                                                        </a>
+                                                    </div>     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                   
+                                </ng-container>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+           <!-- accordion style 5 end buy -->
+                              </div>
+                              </div>
+                              <div class="tab-pane fade" id="pills-sell" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                  <h4 class="text-center text-dark">Sell Currency</h4>  
+                                  <div class="cripto-live mt-5">
+                                    <div class="row">
+                                      <div class="col-2 " *ngFor="let currency of currencyArray">
+                                        <span class="{{currency.class}} circle text-light row-circle" [title]="currency.currency" >
+                                          {{currency.sign}}
+                                        </span>
+                                      </div>
+
+                                    </div>
+
+                       <!-- accordion style 5 start sell -->
+                                <div class="col-lg-12 mt-2">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div id="accordion6" class="according accordion-s2 gradiant-bg">
+                                          <div class="card">
+                                              <div class="card-header">
+                                                  <a class="card-link" data-toggle="collapse" href="#accordion12">
+                                                    Sell Dollar <span class="circle bg-success ml-3">$</span>
+                                                    </a>
+                                              </div>
+                                              <div id="accordion12" class="collapse show" data-parent="#accordion6">
+                                                  <div class="card-body">
+                                                                <!-- Active Items end -->
+                                    <!-- Links And Buttons start -->
+                                    <div class="list-group">
+                                        <a routerLink="/buy-sell/sell-for" class="list-group-item list-group-item-action">
+                                            <span class="circle bg-success ">₦</span>  For Naira
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <span class="circle bg-primary text-light">&euro;</span>  For Euro
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <span class="circle bg-danger text-light">&pound;</span>  For Pounds
+                                        </a>
+                                    </div>
+                                    <!-- Links And Buttons end -->
+                                      </div>
+                                  </div>
+                                    </div>
+                                      <div class="card">
+                                          <div class="card-header">
+                                              <a class="collapsed card-link" data-toggle="collapse" href="#accordion15">
+                                                  Sell Euro <span class="circle bg-primary ml-3">&euro;</span>
+                                                </a>
+                                          </div>
+                                          <div id="accordion15" class="collapse" data-parent="#accordion6">
+                                              <div class="card-body">
+                                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="card">
+                                          <div class="card-header">
+                                              <a class="collapsed card-link" data-toggle="collapse" href="#accordion14">
+                                                  Sell Pounds <span class="circle bg-danger ml-3">&pound;</span>
+                                                </a>
+                                          </div>
+                                          <div id="accordion14" class="collapse" data-parent="#accordion6">
+                                              <div class="card-body">
+                                                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                             </div>
+                                  </div>
+                                              <!-- accordion style 5 end sell -->
+                                        </div>                              
+                              </div>
+                      
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- nav tab end -->
+      </div>
+  </div>
+  <!-- main content area end -->
+  <!-- footer area start-->
+  <app-dashboard-footer></app-dashboard-footer>
+  <!-- footer area end-->
+<notifier-container></notifier-container> 
+</div> 

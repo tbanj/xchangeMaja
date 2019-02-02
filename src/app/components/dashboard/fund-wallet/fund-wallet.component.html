@@ -1,0 +1,107 @@
+
+<!-- <div id="preloader">
+  <div class="loader"></div>
+</div> -->
+<!-- preloader area end -->
+<!-- page container area start -->
+<div class="page-container">
+  <!-- sidebar menu area start -->
+    <app-sidebar></app-sidebar>
+  <!-- sidebar menu area end -->
+  <!-- main content area start -->
+  <div class="main-content">
+    <app-dashboard-header></app-dashboard-header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mb-5">
+        
+
+            <ng-container *ngIf="paymentForm">
+                <h2 class="headline">How much do to you want to fund*</h2>
+              <form novalidate [formGroup]="funds" (ngSubmit)="fundWallet(funds)">  
+                <!-- <pre>{{ funds.value | json}} </pre>    -->
+              <div class="row"> 
+            
+                <div class="col-md-4">
+          
+
+                    <select class="form-control" formControlName="currency">
+                        <option *ngFor="let cun of cunArray" value="{{cun.symbol}}"  >
+                          {{cun.symbol}}
+                        </option>
+                      </select><br><br>
+                      <div class="text-danger "   
+                      *ngIf="currency.invalid  && formError">
+                       <b>*required</b>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="currency">
+                    <input type="number"  formControlName="price"
+                    class="form-input" placeholder="Payment Amount" ><br><br>
+                    <div class="text-danger"  
+                  *ngIf="price.invalid  && formError">  
+                   <b>*required</b>
+                </div>
+                  </div>
+                  <!-- <div class="text-danger col-md-10"  
+                  *ngIf="price.invalid && price.touched"> 
+                   <b>*required</b>
+                </div> -->
+                </div>
+              </div>
+              <div class="row fund-type">
+                <div class="col-md-12">
+                  <h6>How would you like to fund your Wallet?</h6>
+                  <hr>
+                </div>
+                 <div  >
+              
+                      <label  *ngFor="let payment of paymentType">
+                          <input type="radio" value="{{payment.value}}"
+                            formControlName="fundType"> 
+                          <div class="col-md-12 radio-bg">
+                              <p><span class="{{payment.icon}}"></span>{{payment.name}} </p>
+                            </div>
+                        </label>
+                    <div class="text-danger "  
+                    *ngIf="fundType.invalid  && formError">
+                     <b>*required</b>
+                  </div>
+           
+                  </div>
+         
+                  <span *ngIf="paymentOptionError" class="text-danger" >
+                      you cant use this payment option for naira
+                  </span>
+
+              </div>
+             <div class="col-md-12 text-center">
+                <input type="submit"   id="submit" class="btn btn-info d-flex"
+                 value="Next">
+             </div>
+            </form>
+            </ng-container>
+           
+          <ng-container *ngIf='paypal' >
+           <div class="col-md-12">
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
+              <button type="button" (click)="goBack()" class="btn btn-secondary" >Back</button>
+           </div>
+          </ng-container>
+          
+         
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- main content area end -->
+  <!-- footer area start-->
+  <app-dashboard-footer></app-dashboard-footer>
+  <!-- footer area end-->
+<notifier-container></notifier-container> 
+</div>

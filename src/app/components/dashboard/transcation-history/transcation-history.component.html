@@ -1,0 +1,61 @@
+<!-- page container area start -->
+<div class="page-container">
+    <!-- sidebar menu area start -->
+      <app-sidebar></app-sidebar>
+    <!-- sidebar menu area end -->
+    <!-- main content area start -->
+    <div class="main-content"> 
+      <app-dashboard-header></app-dashboard-header>
+       <!-- page title area end -->
+   <div class="main-content-inner">
+      <div class="row mt-5">
+                <!-- trading history area start -->
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card">
+                            <div class="card-body">
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center"  *ngFor="let tran of transHtry">
+                                            <thead class="text-uppercase">
+                                                <tr><b>{{tran.date}}</b></tr>
+                                               
+                                            </thead>
+                                            <tbody *ngFor="let detail of tran.trans">
+                                                <tr >
+                                                    <td><span class="fa fa-{{detail.icon}} fa-2x"></span></td>
+                                                    <td>{{detail.title}}
+                                                        <p [innerHTML]='detail.detail'></p>
+                                                    </td>
+                                                    <td>{{detail.price}}</td>
+                                                </tr>
+                                            </tbody> 
+                         
+                                              
+                                        </table>
+                                        <nav aria-label="...">
+                                            <ul class="pagination">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <!-- trading history area end -->
+      </div>
+  </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+</div>
+

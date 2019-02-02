@@ -1,0 +1,68 @@
+<div class="page-container">
+    <!-- sidebar menu area start -->
+      <app-sidebar></app-sidebar>
+    <!-- sidebar menu area end -->
+    <!-- main content area start -->
+    <div class="main-content">
+      <app-dashboard-header></app-dashboard-header>
+      <div class="main-content-inner">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="card mb-5">
+                  <h2 class="headline">Buy Dollar with Naira*</h2>
+                  <h4 class="text-center text-dark mt-4">Available balance ₦20,000.00</h4>
+      
+                  <form novalidate>  
+                      
+                    <div class="row">
+                  
+                
+                      <div class="col-md-6">
+                        <div class="currency">
+                          <h6>NGN</h6>
+                          <input type="number"  
+                          class="form-input" placeholder="Payment Amount" ><br><br>
+             
+                        </div>
+                      </div>
+                        <div class="col-md-4">
+                              <h6>Rate</h6>
+                            <select class="form-control text-center" >
+                                <option>365/$</option>
+                                <option>364/$</option>
+                                <option>363/$</option>
+                              </select><br><br>
+                        
+                        </div>
+                     
+                    </div>
+                    <div class="row fund-type">
+                      <div class="col-md-12">
+                        <p>Total dollar to buy $40</p>
+                        <h6 class="text-secondary">Transaction Fee $1.4</h6>
+                        <hr>
+                      </div>
+                       <div>
+                 
+                        </div>
+                    </div>
+                        
+                    <div class="row ml-2">
+                      <input type="submit"   id="submit" class="button btn-success mr-auto" value="Buy Dollar $">
+                      <a routerLink="/buy-sell" class="button btn-secondary ml-auto mr-3"
+                      >Go Back <i class="ti-control-backward"></i>
+                    </a>
+                    </div>
+                    
+                  </form>
+                
+                </div>
+              </div>
+            </div>
+    </div>
+    <!-- main content area end -->
+    <!-- footer area start-->
+    <app-dashboard-footer></app-dashboard-footer>
+    <!-- footer area end-->
+  <notifier-container></notifier-container> 
+  </div> 

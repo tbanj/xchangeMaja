@@ -1,0 +1,26 @@
+.nav .nav-item .nav-link{
+    color: #007bff;
+}
+.nav-pills .nav-link.active{
+    color: white !important;
+}
+.cripto-live ul li{
+    display: inline;
+}
+.circle{
+    padding: 3px 8px;
+    margin-right: 3px;
+    font-size: 13px;
+    line-height: 23px;
+    border-radius: 50%;
+}
+.row-circle{
+    padding: 7px 12px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.list-group .list-group-item{
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: capitalize
+}

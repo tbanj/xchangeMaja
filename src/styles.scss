@@ -1,0 +1,16 @@
+@import "./assets/css/bootstrap.min.css";
+@import "./assets/css/themify-icons.css";
+@import "./assets/dashboard/css/metisMenu.css";
+@import url( "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css");
+// @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import  './assets/dashboard/css/font-awesome.min.css';
+@import "./assets/dashboard/css/slicknav.min.css";
+@import "./assets/dashboard/css/typography.css";
+@import "./assets/dashboard/css/default-css.css";
+@import "./assets/css/style.css";
+@import "./assets/dashboard/css/styles.css";
+@import "./assets/dashboard/css/responsive.css";
+@import "~angular-notifier/styles.css";
+.notifier__notification--material .notifier__notification-message{
+    color: white
+  }
