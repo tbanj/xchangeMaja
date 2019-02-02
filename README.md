@@ -22,4 +22,4 @@ User Withdrawal and summary has been implemented
 <img src="scrs/Capture8.PNG" alt="PhrasesActivity" width="1366" height="623">&nbsp;
 <img src="scrs/Capture9.PNG" alt="AppIcon" width="1348" height="624">
 
-# Author : Alabi Temitope [<img src="scrs/linkedln.PNG">](https://www.linkedin.com/in/alabi-temitope-aa036b103/)
+# Author : Alabi Temitope [<img src="scrs/linkedln.PNG" alt="Linkedln Logo">](https://www.linkedin.com/in/alabi-temitope-aa036b103/)
